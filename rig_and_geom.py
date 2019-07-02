@@ -2,7 +2,6 @@
 
 from maya import cmds
 
-# create a cube by giving maya the polyCube command
 cube = cmds.polyCube()
 
 
@@ -10,24 +9,20 @@ cube = cmds.polyCube()
 print type(cube)  #[name_of_object, name_of_node_creating_object]
 
 
-# just the transform, which is the first member of the list
+# just the cube object
 transform = cube[0]
-creator = cube[1]
 
-circle = cmds.circle()
+circle_ = cmds.circle()
+circle = circle_[0]
 
-circle = circle[0]
-# Okay so we have the circle transform (circle) and the cube's transform (transform)
-# Let's parent the cube under the circle
-
+# Parent the cube under the circle
 cmds.parent(transform, circle)
 
 # lock the cube's controls
-
 cmds.setAttr(transform+'.translate', lock=True)
 cmds.setAttr(transform+".rotate", lock=True)
 cmds.setAttr(transform+'.scale', lock=True)
 
-# Finally lets select the circle
+# Leave circle selected
 cmds.select(circle)
 
