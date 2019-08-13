@@ -31,6 +31,7 @@ def createGear(teeth=10, length=0.3):
     extrude = cmds.polyExtrudeFacet(localTranslateZ=length)[0]
 
     # return a tuple of (transform, constructor, extrude)
+    return transform, constructor, extrude
    
 
 
